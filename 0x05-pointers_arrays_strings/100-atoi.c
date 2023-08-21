@@ -5,7 +5,7 @@
  *
  * @s: char type string
  *
- * Return: nothing
+ * Return: converted integer
 */
 int _atoi(char *s)
 {
