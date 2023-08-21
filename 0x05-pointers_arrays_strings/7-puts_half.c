@@ -15,7 +15,7 @@ for (i = 0; str[i] != '\0'; i++)
 ;
 count = i / 2;
 while (count++)
-_puthcar(str[count]);
-_puthcar('\n');
+_putchar(str[count]);
+_putchar('\n');
 }
 
