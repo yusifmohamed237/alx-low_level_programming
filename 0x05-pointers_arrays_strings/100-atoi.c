@@ -3,7 +3,7 @@
 /**
  * _atoi - convert a string to an integer.
  *
- * @s: char type string
+ * @s: string input parameter
  *
  * Return: converted integer
 */
@@ -20,7 +20,7 @@ num = (num * 10) + (*s - '0');
 else if (num > 0)
 break;
 } while (*s++);
-return (num * sign);
+return (num *sign);
 }
 
 
