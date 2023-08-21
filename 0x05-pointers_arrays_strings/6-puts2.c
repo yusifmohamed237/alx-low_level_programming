@@ -14,8 +14,8 @@ int i;
 for (i = 0; str[i] != '\0' ; i++)
 {
 if (i % 2 == 0)
-_purchar(str[i]);
+_putchar(str[i]);
 }
-_purchar('\n');
+_putchar('\n');
 }
 
