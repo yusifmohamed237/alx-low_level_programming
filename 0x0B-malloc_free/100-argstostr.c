@@ -1,71 +1,39 @@
 #include "main.h"
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 /**
- * _strcat - Concat string, src appended to dest
- *
- * @dest: Destination string
- * @src: Source string
- * Return: Concat newString to dest
- */
-char *_strcat(char *dest, char *src)
-{
-int a, b;
-
-for (a = 0; dest[a] != '\0'; a++)
-;
-for (b = 0; src[b] != '\0'; b++)
-{
-dest[a] = src[b];
-a++;
-}
-return (dest);
-}
-
-/**
- * _strlen - Return the number of the length of the string
- *
- * @s: This is the string to check
- *
- * Return: Return the length of the string
- */
-int _strlen(char *s)
-{
-int a;
-
-for (a = 0; s[a] != '\0'; a++)
-;
-return (a);
-}
-
-/**
- * argstostr - Concats argv to new string
- *
- * @ac: Argument count
- * @av: Arguments
- *
- * Return: Returns a pointer to a new string, or NULL if it fails
+ * *_realloc - reallocate memory size function
+ * @ptr: pointer to address of old memory location
+ * @old_size: unsigned int type of old memory size
+ * @new_size: unsigned int type for new memory size
+ * Return:  return pointer to array
  */
 
-char *argstostr(int ac, char **av)
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-int index, sumString;
-char *newString;
+char *s;
 
-sumString = 1;
-
-if (ac == 0 || av == NULL)
-return (0);
-for (index = 0; index < ac && av[index]; index++)
+if (new_size > old_size)
 {
-sumString += _strlen(av[index]);
+s = malloc(new_size);
+free(ptr);
+return (s);
 }
-newString = malloc((sumString * sizeof(char)) + ac);
-for (index = 0; index < ac && av[index]; index++)
+if (new_size == old_size)
 {
-newString = _strcat(newString, av[index]);
-newString = _strcat(newString, "\n");
+return (ptr);
 }
-if (newString == NULL)
+if (ptr == NULL)
+{
+s = malloc(new_size);
+free(ptr);
+return (s);
+}
+if (new_size == 0 && ptr != NULL)
+{
+free(ptr);
 return (NULL);
-return (newString);
+}
+return (ptr);
 }
